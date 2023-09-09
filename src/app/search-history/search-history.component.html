@@ -1,0 +1,37 @@
+<div class="row">
+  <button class="bg-primary p-3 px-5 btn text-light mt-3 w-auto mx-auto" (click)="showHistory = !showHistory">
+    Toggle search history
+  </button>
+</div>
+
+<div class="row mt-3">
+  <ng-container *ngIf="showHistory">
+    <div class="col-12 w-25 mx-auto text-center">
+      <ng-container *ngIf="historyContent.length === 0">
+        <span class="h4 fw-light mt-4 border-top">History is empty.</span>
+      </ng-container>
+      <table class="table" *ngIf="historyContent.length > 0">
+        <thead>
+        <tr>
+          <th>Search pass number</th>
+          <th>User ID</th>
+        </tr>
+        </thead>
+        <ng-container *ngFor="let histLine of historyContent; let n = index">
+          <tr>
+            <td>
+              {{n + 1}}
+            </td>
+            <td>
+              {{histLine}}
+            </td>
+          <tr>
+        </ng-container>
+      </table>
+    </div>
+  </ng-container>
+</div>
+<div class="progress w-25 mx-auto mt-3 mb-5">
+  <div class="progress-bar progress-bar-striped" role="progressbar"aria-valuenow="10"
+       aria-valuemin="0" aria-valuemax="100" style="{{progressStyle}}"></div>
+</div>

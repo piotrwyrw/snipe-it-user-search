@@ -1,0 +1,18 @@
+<div class="row">
+  <form class="mt-3">
+    <label for="user-id" class="me-2 h5 fw-light">User ID to search for:</label>
+    <input id="user-id" type="number" min="1" max="20" value="1" #userID (keyup.enter)="searchUser()">
+  </form>
+</div>
+<div class="row">
+  <div class="dropdown mt-3">
+    <button class="btn border-0 btn-secondary dropdown-toggle bg-success p-3 px-5" type="button" id="actionDropDown"
+            data-bs-toggle="dropdown" aria-expanded="false">
+      Actions
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#" (click)="searchUser()">Search</a></li>
+      <li><a class="dropdown-item" href="#" (click)="resetView()">Reset View</a></li>
+    </ul>
+  </div>
+</div>

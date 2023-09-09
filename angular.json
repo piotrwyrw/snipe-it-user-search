@@ -24,9 +24,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "styles": [],
             "scripts": []
           },
           "configurations": {
@@ -94,5 +92,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f5541502-160e-4532-9e80-340672348ae9"
   }
 }
