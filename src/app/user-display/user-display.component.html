@@ -1,16 +1,16 @@
 <!-- User display block -->
 <div class="d-flex justify-content-center flex-wrap">
   <ng-container *ngFor="let user of users" class="text-center">
-    <div class="card shadow d-inline-block mx-4 my-4 align-self-stretch" style="width: 15em">
-      <img class="card-img-top" src="{{user.avatar}}" alt="Avatar image">
+    <div class="card shadow d-inline-block mx-4 my-4">
+      <img class="card-img-top" src="{{user.avatar}}" alt="Avatar image" style="height: 15em; width: 100%; object-fit: cover">
       <div class="card-body">
         <h4 class="card-title mt-3 fw-bold"><span class="h6 fw-light fst-italic">{{user.id}}</span> {{user.username}}</h4>
         <h5 class="card-text mt-2 fw-light">{{user.jobTitle}}</h5>
         <h5 class="card-text mt-2 fw-light">{{user.firstName}}</h5>
         <h5 class="card-text mt-2 fw-light">{{user.lastName}}</h5>
         <h5 class="card-text mt-2 fw-light fst-italic">({{user.language}})</h5>
+        <button class="btn bg-primary text-light mt-2" (click)="window.open(user.avatar)">Open Image</button>
       </div>
-      <button *ngIf="user.avatar" class="btn bg-primary mb-3 p-3 text-light" (click)="window.open(user.avatar)">Open Image</button>
     </div>
   </ng-container>
 </div>

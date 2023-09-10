@@ -21,7 +21,5 @@ export class UserDisplayComponent {
     })
   }
 
-  protected readonly document = document;
   protected readonly window = window;
-  protected readonly console = console;
 }
