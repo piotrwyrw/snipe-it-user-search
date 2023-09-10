@@ -32,4 +32,11 @@ export class SearchHistoryComponent {
     })
   }
 
+  buttonCaption(): String {
+    if (this.showHistory)
+      return "Hide history"
+    else
+      return "Show history"
+  }
+
 }
