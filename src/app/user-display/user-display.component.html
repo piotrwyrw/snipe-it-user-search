@@ -2,7 +2,7 @@
 <div class="d-flex justify-content-center flex-wrap">
   <ng-container *ngFor="let user of users" class="text-center">
     <div class="card shadow d-inline-block mx-4 my-4">
-      <img class="card-img-top" src="{{user.avatar}}" alt="Avatar image" style="height: 15em; width: 100%; object-fit: cover">
+      <img class="card-img-top" src="{{user.avatar}}" alt="Avatar image" style="height: 15em; width: 100%; max-width: 20em; object-fit: cover">
       <div class="card-body">
         <h4 class="card-title mt-3 fw-bold"><span class="h6 fw-light fst-italic">{{user.id}}</span> {{user.username}}</h4>
         <h5 class="card-text mt-2 fw-light">{{user.jobTitle}}</h5>
