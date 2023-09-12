@@ -1,7 +1,7 @@
 <div class="row">
   <form class="mt-3">
     <label for="user-id" class="me-2 h5 fw-light">User ID to search for:</label>
-    <input id="user-id" type="number" min="1" max="20" value="1" #userID (keyup.enter)="searchUser()">
+    <input id="user-id" type="number" min="1" max="20" value="1" #userID (keydown.enter)="searchUser()">
   </form>
 </div>
 <div class="row">

@@ -4,6 +4,7 @@ import {BehaviorSubject, Subject} from "rxjs";
 import api_config from "../../api_config";
 
 import {decode} from "html-entities"
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 export class User {
 
@@ -38,30 +39,30 @@ export class UserService {
 
   public users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([])
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   async searchUser(userID: number): Promise<boolean> {
-    const userJSON = await fetch(`https://develop.snipeitapp.com/api/v1/users/${userID}`, {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${api_config.key}`,
+
+    this.http.get<any>(`https://develop.snipeitapp.com/api/v1/users/${userID}`, {
+      headers: new HttpHeaders()
+        .set("Accept", "application/json")
+        .set("Authorization", `Bearer ${api_config.key}`)
+    }).subscribe({
+      next: userJSON => {
+        if (userJSON) {
+          if (userJSON['status'] === 'error') {
+            return
+          }
+          this.users.next([...this.users.value, User.fromJSON(userJSON)])
+          console.log(this.users)
+        }
       }
-    }).then(val => val.json()).catch(reason => {
-      console.log(`Failed to fetch user: ${reason}`)
-      return undefined
     })
 
-    if (userJSON) {
-      if (userJSON['status'] === 'error') {
-        return false
-      }
-      this.users.next([...this.users.value, User.fromJSON(userJSON)])
-      console.log(this.users)
-    }
 
     return true;
   }
 
 }
+

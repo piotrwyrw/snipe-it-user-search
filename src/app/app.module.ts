@@ -6,6 +6,7 @@ import {SearchHistoryComponent} from './search-history/search-history.component'
 import {NgOptimizedImage} from "@angular/common";
 import {HistoryService} from "./history.service";
 import {UserService} from "./user.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {UserService} from "./user.service";
   ],
   imports: [
     BrowserModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    HttpClientModule
   ],
   providers: [
     HistoryService,
